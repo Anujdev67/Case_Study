@@ -27,3 +27,21 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+src/util/db.properties
+
+# Ignore IDE specific files
+.idea/
+
+# Ignore class files
+*.class
+
+# Ignore logs
+*.log
+
+# Ignore OS files
+
+Thumbs.db
+
+# Ignore database connection files (optional)
+*.properties
