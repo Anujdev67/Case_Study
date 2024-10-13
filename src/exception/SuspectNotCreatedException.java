@@ -1,7 +1,7 @@
 package exception;
 
-public class SuspectNotCreatedException extends RuntimeException {
-  public SuspectNotCreatedException(String message) {
-    super(message);
-  }
+public class SuspectNotCreatedException extends Exception {
+    public SuspectNotCreatedException(String message, Throwable cause) {
+        super(message, cause);
+    }
 }

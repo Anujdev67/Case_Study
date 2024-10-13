@@ -1,7 +1,7 @@
 package exception;
 
-public class IncidentNotCreatedException extends RuntimeException {
-  public IncidentNotCreatedException(String message) {
-    super(message);
-  }
+public class IncidentNotCreatedException extends Exception {
+    public IncidentNotCreatedException(String message, Throwable cause) {
+        super(message, cause);
+    }
 }

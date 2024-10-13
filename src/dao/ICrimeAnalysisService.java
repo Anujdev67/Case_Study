@@ -1,33 +1,39 @@
 package dao;
 
 import entity.*;
+import exception.DatabaseException;
+import exception.IncidentNumberNotFoundException;
+
+import java.sql.Date;
 import java.util.List;
 
 public interface ICrimeAnalysisService {
-    void createVictim(Victim victim);
-    void createSuspect(Suspect suspect);
-    void createIncident(Incident incident);
-    void createOfficer(Officer officer);
-    void createAgency(LawEnforcementAgency agency);
-    void createReport(Report report);
-    void createEvidence(Evidence evidence);
+    void createVictim(Victim victim) throws DatabaseException;
+    void createSuspect(Suspect suspect) throws DatabaseException;
+    void createIncident(Incident incident) throws DatabaseException;
+    void createOfficer(Officer officer) throws DatabaseException;
+    void createAgency(LawEnforcementAgency agency) throws DatabaseException;
+    void createReport(Report report) throws DatabaseException;
+    void createEvidence(Evidence evidence) throws DatabaseException;
 
-    Victim getVictim(int victimID);
-    Suspect getSuspect(int suspectID);
-    Incident getIncident(int incidentID);
-    Officer getOfficer(int officerID);
-    LawEnforcementAgency getAgency(int agencyID);
-    Report getReport(int reportID);
-    Evidence getEvidence(int evidenceID);
+    Victim getVictim(int victimID) throws IncidentNumberNotFoundException,DatabaseException;
+    Suspect getSuspect(int suspectID) throws IncidentNumberNotFoundException, DatabaseException;
+    Incident getIncident(int incidentID) throws IncidentNumberNotFoundException, DatabaseException;
+    Officer getOfficer(int officerID) throws IncidentNumberNotFoundException, DatabaseException;
+    LawEnforcementAgency getAgency(int agencyID) throws IncidentNumberNotFoundException,DatabaseException;
+    Report getReport(int reportID) throws IncidentNumberNotFoundException,DatabaseException;
+    Evidence getEvidence(int evidenceID) throws IncidentNumberNotFoundException,DatabaseException;
 
-    List<Incident> getAllIncidents();
-    List<Victim> getAllVictims();
-    List<Suspect> getAllSuspects();
-    List<Officer> getAllOfficers();
-    List<LawEnforcementAgency> getAllAgencies();
-    List<Report> getAllReports();
-    List<Evidence> getAllEvidence();
+    List<Incident> getAllIncidents() throws DatabaseException;
+    List<Victim> getAllVictims() throws DatabaseException;
+    List<Suspect> getAllSuspects() throws DatabaseException;
+    List<Officer> getAllOfficers() throws DatabaseException;
+    List<LawEnforcementAgency> getAllAgencies() throws DatabaseException;
+    List<Report> getAllReports() throws DatabaseException;
+    List<Evidence> getAllEvidence() throws DatabaseException;
 
-    void updateIncidentStatus(int incidentID, String status);
-    void updateReportStatus(int reportID, String status);
+    void updateIncidentStatus(int incidentID, String status) throws DatabaseException;
+    void updateReportStatus(int reportID, String status) throws DatabaseException;
+
+    List<Incident> getIncidentsInDateRange(Date startDate, Date endDate) throws DatabaseException;
 }
